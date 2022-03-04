@@ -1,0 +1,41 @@
+MainWidget:
+
+<MainWidget@GridLayout>:
+    cols: 1
+    Label:
+        canvas.before:
+            Color:
+                rgb: 0, .6, .87
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        size_hint: 1, 0.1
+        pos_hint: None, None
+        pos: self.pos
+        text: "Hello World"
+
+
+    ScrollViewExample:
+
+    Label:
+        canvas.before:
+            Color:
+                rgb: 0, .6, .87
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        size_hint: 1, 0.1
+        pos_hint: None, None
+        pos: self.width, 0
+        text: "Hello"
+
+
+
+
+<ScrollViewExample@ScrollView>:
+    StackLayoutExample:
+        size_hint: 1, None
+        size_hint_y: self.minimum_height
+
+<ListLable@Label>:
+    text: "test"
