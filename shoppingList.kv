@@ -14,8 +14,9 @@ MainWidget:
         pos: self.pos
         text: "Hello World"
 
+    ScrollListItems:
+        size_hint: 1, .7
 
-    ScrollViewExample:
 
     Label:
         canvas.before:
@@ -32,10 +33,30 @@ MainWidget:
 
 
 
-<ScrollViewExample@ScrollView>:
-    StackLayoutExample:
-        size_hint: 1, None
-        size_hint_y: self.minimum_height
+<ScrollListItems>:
+    ScrollView:
+        Table:
+            orientation: "vertical"
+            size_hint_y: None
+            height: self.minimum_height
 
-<ListLable@Label>:
-    text: "test"
+
+<Row>:
+    spacing: 50
+    size_hint_y: None
+    size_hint_x: 1
+    height: 100
+    Label:
+        text: root.txt
+        color: 0, 0, 0, 1
+        canvas.before:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+            Color:
+                rgb: .5, .5, .5
+            Rectangle:
+                size: self.width, dp(1)
+                pos: self.pos
