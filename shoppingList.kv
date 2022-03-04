@@ -1,20 +1,43 @@
+#:include itemScrolllist.kv
+
 MainWidget:
 
-<MainWidget@GridLayout>:
+<MainWidget>:
+    scrolllist_items: scrolllist_items
+    canvas.before:
+        Color:
+            rgb: 1, 1, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
     cols: 1
-    Label:
-        canvas.before:
-            Color:
-                rgb: 0, .6, .87
-            Rectangle:
-                size: self.size
-                pos: self.pos
-        size_hint: 1, 0.1
-        pos_hint: None, None
-        pos: self.pos
-        text: "Hello World"
+
+
+    RelativeLayout:
+        size_hint: 1, .1
+        Label:
+            size_hint: 1, 1
+            pos_hint: {"center_x": .5, "center_y": .5}
+            text: "Hello World"
+            canvas.before:
+                Color:
+                    rgb: 0, .6, .87
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        Button:
+            text: "+"
+            font_size: 30
+            pos_hint: {"right": 1, "center_y": .5}
+            size_hint: .2, 1
+            background_normal: ""
+            background_color: 0, .6, .87, 1
+            on_press: root.open_add_item_screen()
+
+
 
     ScrollListItems:
+        id: scrolllist_items
         size_hint: 1, .7
 
 
@@ -33,30 +56,34 @@ MainWidget:
 
 
 
-<ScrollListItems>:
-    ScrollView:
-        Table:
-            orientation: "vertical"
-            size_hint_y: None
-            height: self.minimum_height
 
 
-<Row>:
-    spacing: 50
-    size_hint_y: None
-    size_hint_x: 1
-    height: 100
+
+
+
+
+
+<Test@RelativeLayout>:
     Label:
-        text: root.txt
-        color: 0, 0, 0, 1
-        canvas.before:
-            Color:
-                rgb: 1, 1, 1
-            Rectangle:
-                size: self.size
-                pos: self.pos
-            Color:
-                rgb: .5, .5, .5
-            Rectangle:
-                size: self.width, dp(1)
-                pos: self.pos
+        size_hint: 1, 0.1
+        pos_hint: {"right": 1, "center_y": .5}
+        text: "Hello World"
+    Button:
+        text: "HelloW"
+        pos_hint: {"right": 1, "center_y": .5}
+        size_hint: None, None
+        size: self.size
+
+<PlaceHolder@Widget>:
+    canvas.before:
+    Color:
+        rgb: 0, .6, .87
+    Rectangle:
+        pos: self.pos
+        size: self.size
+
+    Button:
+        text: "HelloW"
+        pos_hint: 1, 1
+        size_hint: None, None
+        size: self.size

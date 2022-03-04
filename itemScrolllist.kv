@@ -1,0 +1,32 @@
+<ScrollListItems>:
+    ScrollView:
+        Table:
+            orientation: "vertical"
+            size_hint_y: None
+            height: self.minimum_height
+
+
+<Row>:
+    size_hint_y: None
+    height: dp(50)
+    canvas.before:
+        Color:
+            rgb: 1, 1, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+        Color:
+            rgb: .5, .5, .5
+        Rectangle:
+            size: self.width, dp(1)
+            pos: self.pos
+    Label:
+        padding_x: 20
+        text: root.txt
+        text_size: self.size
+        font_size: dp(17)
+        halign: "left"
+        valign: "center"
+        color: 0, 0, 0, 1
+    CheckBox:
+        color: 0, 0, 0
